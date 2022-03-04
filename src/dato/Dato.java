@@ -53,5 +53,24 @@ public class Dato {
     		}
     	}
     	return existe;
+
+
+    }
+    
+    public Juego altaJuego(Juego juego) {
+    	/*if(revisarJuego(juego)) {
+    	
+    	}*/
+    	g.altaJuego(juego);
+		return juego;
+    	
+    }
+    
+    //Pendiente de completar
+    
+    public boolean revisarJuego(Juego juego) {
+		return true;
+    	
+
     }
 }
