@@ -18,7 +18,8 @@ public class Dato {
     private static String file = "vgsales.csv";
     private static BufferedReader reader = null;
     private static String line = "";
-    private static List<Juego> listaJuegos = new ArrayList<>();    
+    private static List<Juego> listaJuegos = new ArrayList<>();
+    
     public static void recogerDatos(){
         try {
             reader = new BufferedReader(new FileReader (file));
@@ -52,6 +53,8 @@ public class Dato {
     		}
     	}
     	return existe;
+
+
     }
     
     public Juego altaJuego(Juego juego) {
@@ -68,5 +71,6 @@ public class Dato {
     public boolean revisarJuego(Juego juego) {
 		return true;
     	
+
     }
 }
