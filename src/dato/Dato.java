@@ -13,6 +13,7 @@ public class Dato {
 		for (Juego juego : listaJuegos) {
 			if(isExiste(juego)) System.out.println("El juego existe");
 		}
+		Dato.generarInforme();
 		
 	}
     private static String file = "vgsales.csv";
@@ -54,5 +55,12 @@ public class Dato {
     		}
     	}
     	return existe;
+    }
+    
+    public static void generarInforme() {
+		System.out.println("Informe juegos: ");
+    	for(Juego item: listaJuegos) {
+    		System.out.println(item.toString());
+    	}
     }
 }
