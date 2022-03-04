@@ -28,6 +28,21 @@ public class Menu {
 		}
 	}
 	
+	public void altaJuego() {
+		
+	}
+	
+	public void bajaJuego() {
+		
+	}
+	
+	public void modificarJuego() {
+		
+	}
+	
+	public void generarInforme() {
+		
+	}
 	
 	
 }
