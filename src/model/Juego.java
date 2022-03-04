@@ -5,7 +5,8 @@ import model.Juego.Genero;
 public class Juego {
 
     public enum Genero{
-    	Sports
+    	Sports, Action,Shooter
+    	
     }
 
    public enum Plataforma{

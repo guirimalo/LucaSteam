@@ -27,6 +27,7 @@ public class Dato {
             reader.readLine();
             while((line = reader.readLine()) != null){
                 String[] row = line.split(",");
+                row[4].replace("-", "");
                 int fecha = Integer.parseInt(row[3]);
                 Genero genero = Genero.valueOf(row[4]);
                 Plataforma plataforma = Plataforma.valueOf(row[2]);
@@ -61,7 +62,7 @@ public class Dato {
     	/*if(revisarJuego(juego)) {
     	
     	}*/
-    	g.altaJuego(juego);
+    	//g.altaJuego(juego);
 		return juego;
     	
     }
