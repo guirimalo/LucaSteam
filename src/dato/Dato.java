@@ -27,14 +27,14 @@ public class Dato {
             reader.readLine();
             while((line = reader.readLine()) != null){
                 String[] row = line.split(",");
-                row[4].replace("-", "");
-                int fecha = Integer.parseInt(row[3]);
-                Genero genero = Genero.valueOf(row[4]);
+                
+                int fecha = Integer.parseInt(row[3].replace("-", ""));
+                Genero genero = Genero.valueOf(row[4].replace("-", ""));
                 Plataforma plataforma = Plataforma.valueOf(row[2]);
+                
                 Juego juego = new Juego(row[1],plataforma,fecha,genero,row[5]);
                 listaJuegos.add(juego);
-               // for(String index : row)
-                //    System.out.println(index);
+
                System.out.println(listaJuegos);
            }
             System.out.println();
@@ -54,24 +54,5 @@ public class Dato {
     		}
     	}
     	return existe;
-
-
-    }
-    
-    public Juego altaJuego(Juego juego) {
-    	/*if(revisarJuego(juego)) {
-    	
-    	}*/
-    	//g.altaJuego(juego);
-		return juego;
-    	
-    }
-    
-    //Pendiente de completar
-    
-    public boolean revisarJuego(Juego juego) {
-		return true;
-    	
-
     }
 }
