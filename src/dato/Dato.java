@@ -55,4 +55,22 @@ public class Dato {
     	}
     	return existe;
     }
+    
+public Juego altaJuego(Juego juego) {
+    	
+    	
+    	if(listaJuegos.contains(juego)) {
+    		System.out.println("Ya existe este juego");
+    	}else {
+    	
+    		listaJuegos.add(juego);
+    		
+    		System.out.println("Se ha creado el juego" + juego + " correctamente");
+    	}
+		return juego;
+    	
+    	
+    }
+    
+    
 }
