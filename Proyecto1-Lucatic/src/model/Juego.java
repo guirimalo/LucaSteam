@@ -1,14 +1,15 @@
 package model;
 
-enum Genero{
-	
-}
 
-enum Plataforma{
-	
-}
 public class Juego {
+	
+	enum Genero{
+		
+	}
 
+	enum Plataforma{
+		
+	}
 
 	private String nombre;
 	private int date;
