@@ -4,12 +4,12 @@ import model.Juego.Genero;
 
 public class Juego {
 
-    enum Genero{
-
+    public enum Genero{
+    	Sports
     }
 
-    enum Plataforma{
-
+   public enum Plataforma{
+	   Wii
     }
 
     private String nombre;
@@ -22,7 +22,7 @@ public class Juego {
 
     }
 
-    public Juego(String nombre, int fecha, String publisher, Genero genero, Plataforma plataforma) {
+    public Juego(String nombre,Plataforma plataforma, int fecha,Genero genero, String publisher ) {
         this.nombre=nombre;
         this.fecha = fecha;
         this.publisher = publisher;
