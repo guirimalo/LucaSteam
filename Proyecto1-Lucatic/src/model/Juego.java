@@ -1,5 +1,6 @@
 package model;
 
+import model.Juego.Genero;
 
 public class Juego {
 	
@@ -12,18 +13,18 @@ public class Juego {
 	}
 
 	private String nombre;
-	private int date;
+	private int fecha;
 	private String publisher;
-	private String genero;
-	private String plataforma;
+	private Genero genero;
+	private Plataforma plataforma;
 	
 	public Juego() {
 		
 	}
 	
-	public Juego(String nombre, int date, String publisher, String genero, String plataforma) {
+	public Juego(String nombre, int fecha, String publisher, Genero genero, Plataforma plataforma) {
 		this.nombre=nombre;
-		this.date = date;
+		this.fecha = fecha;
 		this.publisher = publisher;
 		this.genero=genero;
 		this.plataforma = plataforma;
@@ -35,11 +36,11 @@ public class Juego {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getDate() {
-		return date;
+	public int getFecha() {
+		return fecha;
 	}
-	public void setDate(int date) {
-		this.date = date;
+	public void setFecha(int echa) {
+		this.fecha = fecha;
 	}
 	public String getPublisher() {
 		return publisher;
@@ -48,15 +49,15 @@ public class Juego {
 		this.publisher = publisher;
 	}
 
-	public String getGenero() {
+	public Genero getGenero() {
 		return genero;
 	}
 
-	public void setGenero(String genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 
-	public String getPlataforma() {
+	public Plataforma getPlataforma() {
 		return plataforma;
 	}
 
@@ -66,8 +67,11 @@ public class Juego {
 
 	@Override
 	public String toString() {
-		return "Juego [nombre=" + nombre + ", date=" + date + ", publisher=" + publisher + "]";
+		return "Juego [nombre=" + nombre + ", date=" + fecha + ", publisher=" + publisher + ", genero=" + genero
+				+ ", plataforma=" + plataforma + "]";
 	}
+
+
 	
 
 	
