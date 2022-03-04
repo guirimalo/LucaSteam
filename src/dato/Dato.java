@@ -6,6 +6,7 @@ import java.util.List;
 import model.Juego;
 import model.Juego.Genero;
 import model.Juego.Plataforma;
+import utilidades.PedirDatos;
 public class Dato {
 	
 	public static void main(String[] args) {
@@ -14,6 +15,8 @@ public class Dato {
 			if(isExiste(juego)) System.out.println("El juego existe");
 		}
 		Dato.generarInforme();
+		Juego j = Dato.crearJuego();
+		System.out.println(j.toString());
 		
 	}
     private static String file = "vgsales.csv";
@@ -62,6 +65,30 @@ public class Dato {
     	for(Juego item: listaJuegos) {
     		System.out.println(item.toString());
     	}
+    }
+    
+    public static Juego crearJuego() {
+    	Juego juegoNuevo = null;
+    	String nombre = PedirDatos.pedirString("Introduzca nombre del juego:");
+    	String nombrePlataforma = PedirDatos.pedirString("Introduzca plataforma del juego:");
+    	Plataforma plataforma = null;
+    	if(nombrePlataforma.equals(Plataforma.Wii.name())) {
+    		plataforma = Plataforma.valueOf(nombrePlataforma);
+    	}
+    	int fecha = PedirDatos.pedirEnteros("Introduzca fecha del año del juego:");
+    	String nombreGenero = PedirDatos.pedirString("Introduzca género del juego: ");
+    	Genero genero = null;
+    	if(nombreGenero.equals(Genero.Action.name())) {
+    		genero = Genero.valueOf(nombreGenero);
+    	}else if(nombreGenero.equals(Genero.Shooter.name())) {
+    		genero = Genero.valueOf(nombreGenero);
+    	}else if(nombreGenero.equals(Genero.Sports.name())) {
+    		genero = Genero.valueOf(nombreGenero);
+    	}
+    	String published = PedirDatos.pedirString("Introduzca published del juego: ");
+    	
+    	juegoNuevo = new Juego(nombre, plataforma, fecha, genero, published);
+    	return juegoNuevo;
     }
     
 }
