@@ -12,5 +12,9 @@ public class Gestor {
 		
 
 	}
+	
+	public void generarInforme() {
+		Dato.generarInforme();
+	}
 
 }
