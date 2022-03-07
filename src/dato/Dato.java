@@ -72,7 +72,19 @@ public class Dato {
 			System.out.println(item.toString());
 		}
 	}
-	
+	public void filtradoGenero(){
+		String g = PedirDatos.pedirString("Introduce el genero a filtrar:");
+		if(isGenero(g)) {
+			Genero genero = Genero.valueOf(g);
+			for (Juego juego : listaJuegos) {
+				if (juego.getGenero().equals(genero))
+					System.out.println(juego.toString());
+			}
+		} else{
+			System.out.println("El genero introducido no corresponde a ninguno encontrado.");
+		}
+	}
+
 	public static boolean isPlataforma(String plataforma) {
 		boolean resultado = false;
 		Plataforma[] plataformas = Plataforma.values();

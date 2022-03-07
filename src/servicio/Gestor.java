@@ -15,5 +15,7 @@ public class Gestor implements IGestor {
 	public void generarInforme() {
 		dato.generarInforme();
 	}
-
+	public void filtradoGenero(){
+		dato.filtradoGenero();
+	}
 }
