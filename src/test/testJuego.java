@@ -3,23 +3,17 @@ package test;
 import model.Juego;
 import model.Juego.Genero;
 import model.Juego.Plataforma;
-
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Test;
-
 import dato.Dato;
-import junit.framework.TestCase;
-import model.Juego;
 
-public class testJuego extends TestCase {
+import static org.junit.Assert.*;
+
+
+public class testJuego {
 	
 		private enum Genero1 {Sports};
 		private enum Plataforma2 {Wii}
