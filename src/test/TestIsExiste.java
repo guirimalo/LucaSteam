@@ -21,15 +21,16 @@ class TestIsExiste {
 	}
 	
 	@Test
-	void isExisteJuegoCreadoManualFalse() {
+	void isExisteJuegoCreadoManualTrue() {
 		juego = new Juego("Wii Sports", Plataforma.WII, 2006, Genero.SPORTS, "Nintendo");
-		assertTrue(dato.isExiste(juego), "Devuelve false porque existe el juego en la lista.");
+		assertTrue(dato.isExiste(juego), "Devuelve true porque existe el juego en la lista.");
 	}
 	
 	@Test
-	void isExisteJuegoCreadoManualTrue() {
+	void isExisteJuegoCreadoManualFalse() {
 		juego = new Juego("Impentum", Plataforma.DS, 2005, Genero.ACTION, "Miltronic");
-		assertFalse(dato.isExiste(juego), "Devuelve true porque no existe el juego en la lista.");
+		assertFalse(dato.isExiste(juego), "Devuelve false porque no existe el juego en la lista.");
 	}
+	
 
 }

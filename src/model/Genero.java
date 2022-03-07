@@ -11,5 +11,6 @@ public enum Genero {
 	MISC,
 	SIMULATION,
 	FIGHTING,
-	ADVENTURE;
+	ADVENTURE,
+	STRATEGY;
 }

@@ -1,32 +1,34 @@
 package dato;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeSet;
 
-import control.Menu;
 import model.Juego;
 import model.Genero;
 import model.Plataforma;
 import utilidades.PedirDatos;
 
 public class Dato {
-	
-	private List<Juego> listaJuegos;
 
+	private TreeSet<Juego> listaJuegos;
 
 	public Dato() {
 		super();
-		this.listaJuegos = new ArrayList<>();
+		this.listaJuegos = new TreeSet<>();
 		this.recogerDatos();
 	}
 
-	public List<Juego> getListaJuegos() {
+
+	public TreeSet<Juego> getListaJuegos() {
 		return listaJuegos;
 	}
-	public void setListaJuegos(List<Juego> listaJuegos) {
+
+
+	public void setListaJuegos(TreeSet<Juego> listaJuegos) {
 		this.listaJuegos = listaJuegos;
 	}
+
+
 	public void recogerDatos() {
 		String file = "vgsales.csv";
 		BufferedReader reader = null;
@@ -36,22 +38,35 @@ public class Dato {
 
 			reader.readLine();
 			while ((line = reader.readLine()) != null) {
-				String[] row = line.split(",");
+				try {
+					String[] row = line.split(",");
+					int fecha = Integer.parseInt(row[3].replace("-", ""));
+					row[4] = row[4].toUpperCase();
+					Genero genero = Genero.valueOf(row[4].replace("-", ""));
 
-				int fecha = Integer.parseInt(row[3].replace("-", ""));
-				row[4] = row[4].toUpperCase();
-				Genero genero = Genero.valueOf(row[4].replace("-", ""));
-				Plataforma plataforma = Plataforma.valueOf(row[2].toUpperCase());
+					Plataforma plataforma;
+					if ("3DS".equals(row[2])) {
+						plataforma = Plataforma.TRESDS;
+					} else if ("2600".equals(row[2].toUpperCase())) {
+						plataforma = Plataforma.DOSSEIS;
+					} else {
+						plataforma = Plataforma.valueOf(row[2].toUpperCase());
+					}
 
-				Juego juego = new Juego(row[1], plataforma, fecha, genero, row[5]);
-				listaJuegos.add(juego);
-				//System.out.println(row[4]);
+					Juego juego = new Juego(row[1], plataforma, fecha, genero, row[5]);
+					listaJuegos.add(juego);
+					System.out.println("h");
+					// System.out.println(row[4]);
+				}catch (Exception e) {
+					
+				}
+				
 			}
 			System.out.println();
 		} catch (Exception e) {
-			System.out.println("Parece que ha dado error");
+			System.out.println("Parece que ha dado error" + e.getMessage());
 		}
-		//generarInforme();
+		// generarInforme();
 	}
 
 	public boolean isExiste(Juego juego) {
@@ -69,9 +84,10 @@ public class Dato {
 	public void generarInforme() {
 		System.out.println("Informe juegos: ");
 		for (Juego item : listaJuegos) {
-			System.out.println(item.toString());
+			System.out.println(Juego.contador + item.toString());
 		}
 	}
+
 	public void filtradoGenero(){
 		String g = PedirDatos.pedirString("Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o4 ADVENTURE");
 		if(isGenero(g)) {
@@ -80,7 +96,7 @@ public class Dato {
 				if (juego.getGenero().equals(genero))
 					System.out.println(juego.toString());
 			}
-		} else{
+		} else {
 			System.out.println("El genero introducido no corresponde a ninguno encontrado.");
 		}
 	}
@@ -88,19 +104,19 @@ public class Dato {
 	public static boolean isPlataforma(String plataforma) {
 		boolean resultado = false;
 		Plataforma[] plataformas = Plataforma.values();
-		for(Plataforma item: plataformas) {
-			if(plataforma.equals(item.getNombre())) {
+		for (Plataforma item : plataformas) {
+			if (plataforma.equals(item.getNombre())) {
 				resultado = true;
 			}
 		}
 		return resultado;
 	}
-	
+
 	public static boolean isGenero(String genero) {
 		boolean resultado = false;
 		Genero[] generos = Genero.values();
-		for(Genero item: generos) {
-			if(genero.equals(item.name())) {
+		for (Genero item : generos) {
+			if (genero.equals(item.name())) {
 				resultado = true;
 			}
 		}
@@ -110,23 +126,22 @@ public class Dato {
 	public Juego crearJuego() {
 		Juego juegoNuevo = null;
 		String nombre = PedirDatos.pedirString("Introduzca nombre del juego:");
-		
+
 		String nombrePlataforma = PedirDatos.pedirString("Introduzca plataforma del juego:");
 		nombrePlataforma = nombrePlataforma.toUpperCase();
 		Plataforma plataforma = null;
 		if (isPlataforma(nombrePlataforma)) {
 			plataforma = Plataforma.valueOf(nombrePlataforma);
 		}
-    
+
 		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
-		
+
 		String nombreGenero = PedirDatos.pedirString("Introduzca genero del juego: ");
 		nombreGenero = nombreGenero.toUpperCase();
 		Genero genero = null;
 		if (isGenero(nombreGenero)) {
 			genero = Genero.valueOf(nombreGenero);
-		}
-		
+		}	
 		String publisher = PedirDatos.pedirString("Introduzca publisher del juego: ");
 
 		
