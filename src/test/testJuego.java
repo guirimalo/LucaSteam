@@ -25,12 +25,10 @@ public class testJuego {
 		@Test
 		public void testAltaJuego() {
 			Dato d = new Dato();
-			d.recogerDatos();
-			Juego j = d.crearJuego();
 			d.altaJuego();
-			
+			//d.altaJuego();			
 			for (Juego juego : d.getListaJuegos()) {
-				if (d.getListaJuegos().contains(juego)) {
+				if (((Dato) d.getListaJuegos()).isExiste(juego)) {
 					
 				}else{
 					assertTrue(d.getListaJuegos().add(juego));
@@ -39,6 +37,8 @@ public class testJuego {
 			}
 				
 		}
+
+	
 		
 		@Test
 		public void testArrayVacio() {
@@ -80,10 +80,9 @@ public class testJuego {
 				assertEquals(esperado2, nombre); 
 				assertEquals(esperado3, publisher); 
 				
-				lista.get(0).getGenero();
-				assertNotNull(Genero.valueOf("Sports"));
-				lista.get(0).getPlataforma();
-				assertNotNull(Plataforma.valueOf("Wii"));
+				
+				assertNotNull(lista.get(0).getGenero());
+				assertNotNull(lista.get(0).getGenero());
 				
 			    
 			    System.out.println("Este es el resultado esperado "+ esperado1 + " y este el actual " + fecha);
@@ -93,13 +92,25 @@ public class testJuego {
 				
 				}
 		@Test
+		public void testGenerarInforme() {
+			Dato d = new Dato();
+			d.generarInforme();
+			for (Juego item : d.getListaJuegos()) {
+				assertNotNull(item.toString());
+				
+			}
+		
+	
+		}
+		@Test
 		public void testJuego() {
 			Juego j1 = new Juego();
-			Juego j2 = new Juego("Wii Sport", Plataforma.WII, 2006, Genero.Sports, "Nintendo");
+			Juego j2 = new Juego("Wii Sport", Plataforma.WII, 2006, Genero.SPORTS, "Nintendo");
 			
 			assertEquals("Juego [nombre=null, date=0, publisher=null, genero=null, plataforma=null]",j1.toString());
-			assertEquals("Juego [nombre=Wii Sport, date=2006, publisher=Nintendo, genero=Sports, plataforma=WII]",j2.toString());
+			assertEquals("Juego [nombre=Wii Sport, date=2006, publisher=Nintendo, genero=SPORTS, plataforma=WII]",j2.toString());
 		//
 			
 		}
 }
+
