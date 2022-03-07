@@ -90,7 +90,7 @@ public class Dato {
 		System.out.println("Informe juegos: ");
 		if(!listaJuegos.isEmpty()) {
 			for (Juego item : listaJuegos) {
-				System.out.println(Juego.contador + item.toString());
+				System.out.println(item.toString());
 			}
 		}else {
 			System.out.println("Está vacío");
