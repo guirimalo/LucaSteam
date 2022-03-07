@@ -34,4 +34,10 @@ public class Gestor implements IGestor {
 	public void filtradoSXX() {
 		dato.filtradoSXX();
 	}
+	public void pedirPlataforma() {
+		this.dato.pedirPlataforma();
+	}
+	public void filtradoAniosPares() {
+		dato.filtradoAniosPares();
+	}
 }
