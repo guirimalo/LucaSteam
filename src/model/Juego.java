@@ -5,13 +5,33 @@ import model.Juego.Genero;
 public class Juego {
 
     public enum Genero{
-    	Sports, Action,Shooter
+    	Sports, Action,Shooter,Platform,Racing,RolePlaying,Puzzle,Misc,Simulation,Fighting,Adventure
     	
     }
 
    public enum Plataforma{
-	   Wii
-    }
+	   Wii,NES,GB,DS,X360,PS3,PS2,SNES,GBA,PS,NG4,PSP,XOne,GC,WiiU,XB,PC,GEN,DOSSEIS(2600),TRESDS(3DS);
+	   
+	 
+	  private int plat;
+	 
+	  Plataforma() {
+		  
+	  }
+	  Plataforma(int i) {
+			plat=i;
+		}
+		public int getPlat() {
+			return plat;
+		}
+		public void setPlat(int plat) {
+			this.plat = plat;
+		}
+
+		  
+
+	  
+	}
 
     private String nombre;
     private int fecha;
