@@ -1,14 +1,11 @@
 package test;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import dato.Dato;
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
@@ -31,7 +28,7 @@ class testGenero {
 		
 			assertNull(j1.getGenero());
 		
-	}
+		}
 }
 
 
