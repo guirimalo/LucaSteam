@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import model.Genero;
 import model.Juego;
@@ -88,7 +89,7 @@ public class Dato {
 				System.out.println(item.toString());
 			}
 		} else {
-			System.out.println("Est� vac�o");
+			System.out.println("Esta Vacio");
 		}
 
 	}
@@ -109,12 +110,48 @@ public class Dato {
 			System.out.println("El genero introducido no corresponde a ninguno encontrado.");
 		}
 	}
-
+	
+	public ArrayList<Juego> filtradoSXX(){
+		ArrayList<Juego> lista = new ArrayList<>();
+		for (Juego juego : listaJuegos) {
+			if (juego.getFecha()<2000)
+				lista.add(juego);
+		}
+		this.imprimirInforme(lista);
+		return lista;
+	}
+	public void pedirPlataforma(){
+		String parametro = PedirDatos.pedirString(
+				"Introduce la plataforma a filtrar: WII, NES, GB, DS, X360, PS4, PS3, PS2, SNES, GBA, PS, N64, NG4, PSP, XONE, GC, IIU, XB, PC, GEN, 2600 o 3DS");
+		parametro = parametro.toUpperCase();
+		if(parametro.equals("3DS"))
+			parametro = "TRESDS";
+		if(parametro.equals("2600"))
+			parametro = "DOSSEIS";
+		filtradoPlataforma(parametro);
+	}
+	public void filtradoPlataforma(String p) {
+		if (isPlataforma(p)) {
+			Plataforma plataformas = Plataforma.valueOf(p);
+			for (Juego juego : listaJuegos) {
+				if (juego.getPlataforma().equals(plataformas))
+					System.out.println(juego.toString());
+			}
+		} else {
+			System.out.println("La plataforma introducida no corresponde a ninguna encontrada.");
+		}
+	}
+	public void filtradoAniosPares() {
+		for (Juego juego : listaJuegos) {
+			if (juego.getFecha()% 2 == 0) {
+				System.out.println(juego.toString());}
+		}
+	}
 	public boolean isPlataforma(String plataforma) {
 		boolean resultado = false;
 		Plataforma[] plataformas = Plataforma.values();
 		for (Plataforma item : plataformas) {
-			if (plataforma.equals(item.getNombre())) {
+			if (plataforma.equals(item.toString())) {
 				resultado = true;
 			}
 		}
@@ -204,5 +241,11 @@ public class Dato {
 		}
 		return juego;
 
+	}
+	
+	public void imprimirInforme(ArrayList<Juego> lista) {
+		for (Juego item : lista) {
+			System.out.println(item.toString());
+		}
 	}
 }

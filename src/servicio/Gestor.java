@@ -33,6 +33,14 @@ public class Gestor implements IGestor {
 	
 	public void filtradoPorPublihser() {
 		this.dato.pedirPublisher();
+  }
+	public void filtradoSXX() {
+		dato.filtradoSXX();
 	}
-
+	public void pedirPlataforma() {
+		this.dato.pedirPlataforma();
+	}
+	public void filtradoAniosPares() {
+		dato.filtradoAniosPares();
+	}
 }
