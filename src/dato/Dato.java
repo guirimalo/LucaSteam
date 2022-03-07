@@ -73,7 +73,7 @@ public class Dato {
 		}
 	}
 	public void filtradoGenero(){
-		String g = PedirDatos.pedirString("Introduce el genero a filtrar:");
+		String g = PedirDatos.pedirString("Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o4 ADVENTURE");
 		if(isGenero(g)) {
 			Genero genero = Genero.valueOf(g);
 			for (Juego juego : listaJuegos) {

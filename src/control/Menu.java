@@ -50,7 +50,7 @@ public class Menu {
 	public void generarInforme() {
 		System.out.println("---Informes---");
 		System.out.println("Selecciona el tipo de informe que deseas generar:");
-		System.out.println("1-Lista completa \n 2-Por genero \n 3-Por plataforma \n 4-Por Publisher \n 5-Por fecha \n 6-Juegos del siglo XX \n 7-Por annos pares");
+		System.out.println(" 1-Lista completa \n 2-Por genero \n 3-Por plataforma \n 4-Por Publisher \n 5-Por fecha \n 6-Juegos del siglo XX \n 7-Por annos pares");
 		
 		try {
 			int seleccion = PedirDatos.pedirEnteros("Introduce el numero de la opcion requerida y pulsa enter.");
