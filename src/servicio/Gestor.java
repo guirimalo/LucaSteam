@@ -24,7 +24,7 @@ public class Gestor implements IGestor {
 	}
 
 	public void filtradoGenero() {
-		this.dato.filtradoGenero();
+		this.dato.pedirGenero();
 	}
 	
 	public void filtradoPorNintendo() {
@@ -32,7 +32,7 @@ public class Gestor implements IGestor {
 	}
 	
 	public void filtradoPorPublihser() {
-		this.dato.filtrarPorPublisher(null);
+		this.dato.pedirPublisher();
 	}
 
 }

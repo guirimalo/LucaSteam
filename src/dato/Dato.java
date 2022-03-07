@@ -93,13 +93,16 @@ public class Dato {
 
 	}
 
-	public void filtradoGenero() {
+	public void pedirGenero() {
 		String g = PedirDatos.pedirString(
 				"Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o ADVENTURE");
-		if (isGenero(g.toUpperCase())) {
-			Genero genero = Genero.valueOf(g.toUpperCase());
+		this.filtradoGenero(g.toUpperCase());
+	}
+	public void filtradoGenero(String genero) {
+		if (isGenero(genero)) {
+			Genero genero2 = Genero.valueOf(genero);
 			for (Juego juego : listaJuegos) {
-				if (juego.getGenero().equals(genero))
+				if (juego.getGenero().equals(genero2))
 					System.out.println(juego.toString());
 			}
 		} else {
