@@ -66,6 +66,13 @@ public class Menu {
 			case 2:
 				gestor.filtradoGenero();
 				break;
+			case 3:
+				gestor.pedirPlataforma();
+				break;
+			case 4:
+					//gestor.filtradoPublisher();
+					//break;
+
 
 			default:
 				System.out.println("Elige una opcion valida.");
