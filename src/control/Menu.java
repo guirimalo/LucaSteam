@@ -20,6 +20,7 @@ public class Menu {
 		
 		//Se sale del menu y se finaliza el programa cuando se marca la opcion salir de dicho menu.
 		while(salir==false) {
+			gestor.getDato().recogerDatos();
 			System.out.println("Opciones disponibles: \n 1-Dar de alta un juego. \n 2-Dar de baja un juego. \n 3-Modificar un juego. \n 4-Generar informe. \n 5-Salir");
 			
 			try {

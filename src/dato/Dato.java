@@ -39,19 +39,19 @@ public class Dato {
 				String[] row = line.split(",");
 
 				int fecha = Integer.parseInt(row[3].replace("-", ""));
+				row[4] = row[4].toUpperCase();
 				Genero genero = Genero.valueOf(row[4].replace("-", ""));
-				Plataforma plataforma = Plataforma.valueOf(row[2]);
+				Plataforma plataforma = Plataforma.valueOf(row[2].toUpperCase());
 
 				Juego juego = new Juego(row[1], plataforma, fecha, genero, row[5]);
 				listaJuegos.add(juego);
-
-				System.out.println(listaJuegos);
 				//System.out.println(row[4]);
 			}
 			System.out.println();
 		} catch (Exception e) {
 			System.out.println("Parece que ha dado error");
 		}
+		//generarInforme();
 	}
 
 	public boolean isExiste(Juego juego) {
