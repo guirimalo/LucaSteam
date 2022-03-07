@@ -3,18 +3,17 @@ package servicio;
 import dato.Dato;
 import model.Juego;
 
-public class Gestor {
+public class Gestor implements IGestor {
 	
-	public Juego altaJuego (Juego juego) {
-		
-		new Dato().altaJuego(juego);
+	private Dato dato = new Dato();
+	
+	public Juego altaJuego() {
+		Juego juego = dato.altaJuego();
 		return juego;
-		
-
 	}
 	
 	public void generarInforme() {
-		Dato.generarInforme();
+		dato.generarInforme();
 	}
 
 }

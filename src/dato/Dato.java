@@ -4,33 +4,33 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import control.Menu;
 import model.Juego;
-import model.Juego.Genero;
-import model.Juego.Plataforma;
+import model.Genero;
+import model.Plataforma;
 import utilidades.PedirDatos;
 
 public class Dato {
+	
+	private List<Juego> listaJuegos;
 
-	public static void main(String[] args) {
-		recogerDatos();
-		/*for (Juego juego : listaJuegos) {
-			if (isExiste(juego))
-				System.out.println("El juego existe");
-		}
-		Dato.generarInforme();
-		Juego j = Dato.crearJuego();
-		System.out.println(j.toString());*/
 
-    }
-    
-    
+	public Dato() {
+		super();
+		this.listaJuegos = new ArrayList<>();
+	}
 
-	private static String file = "vgsales.csv";
-	private static BufferedReader reader = null;
-	private static String line = "";
-	public static List<Juego> listaJuegos = new ArrayList<>();
+	public List<Juego> getListaJuegos() {
+		return listaJuegos;
+	}
+	public void setListaJuegos(List<Juego> listaJuegos) {
+		this.listaJuegos = listaJuegos;
+	}
 
-	public static void recogerDatos() {
+	public void recogerDatos() {
+		String file = "vgsales.csv";
+		BufferedReader reader = null;
+		String line = "";
 		try {
 			reader = new BufferedReader(new FileReader(file));
 
@@ -54,7 +54,7 @@ public class Dato {
 		}
 	}
 
-	public static boolean isExiste(Juego juego) {
+	public boolean isExiste(Juego juego) {
 		boolean existe = false;
 
 		for (Juego item : listaJuegos) {
@@ -66,39 +66,64 @@ public class Dato {
 		return existe;
 	}
 
-	public static void generarInforme() {
+	public void generarInforme() {
 		System.out.println("Informe juegos: ");
 		for (Juego item : listaJuegos) {
 			System.out.println(item.toString());
 		}
 	}
+	
+	public static boolean isPlataforma(String plataforma) {
+		boolean resultado = false;
+		Plataforma[] plataformas = Plataforma.values();
+		for(Plataforma item: plataformas) {
+			if(plataforma.equals(item.getNombre())) {
+				resultado = true;
+			}
+		}
+		return resultado;
+	}
+	
+	public static boolean isGenero(String genero) {
+		boolean resultado = false;
+		Genero[] generos = Genero.values();
+		for(Genero item: generos) {
+			if(genero.equals(item.name())) {
+				resultado = true;
+			}
+		}
+		return resultado;
+	}
 
-	public static Juego crearJuego() {
+	public Juego crearJuego() {
 		Juego juegoNuevo = null;
 		String nombre = PedirDatos.pedirString("Introduzca nombre del juego:");
+		
 		String nombrePlataforma = PedirDatos.pedirString("Introduzca plataforma del juego:");
+		nombrePlataforma = nombrePlataforma.toUpperCase();
 		Plataforma plataforma = null;
-		if (nombrePlataforma.equals(Plataforma.Wii.name())) {
+		if (isPlataforma(nombrePlataforma)) {
 			plataforma = Plataforma.valueOf(nombrePlataforma);
 		}
-		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del a�o del juego:");
-		String nombreGenero = PedirDatos.pedirString("Introduzca g�nero del juego: ");
+    
+		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
+		
+		String nombreGenero = PedirDatos.pedirString("Introduzca genero del juego: ");
+		nombreGenero = nombreGenero.toUpperCase();
 		Genero genero = null;
-		if (nombreGenero.equals(Genero.Action.name())) {
-			genero = Genero.valueOf(nombreGenero);
-		} else if (nombreGenero.equals(Genero.Shooter.name())) {
-			genero = Genero.valueOf(nombreGenero);
-		} else if (nombreGenero.equals(Genero.Sports.name())) {
+		if (isGenero(nombreGenero)) {
 			genero = Genero.valueOf(nombreGenero);
 		}
+		
 		String published = PedirDatos.pedirString("Introduzca published del juego: ");
 
+		
 		juegoNuevo = new Juego(nombre, plataforma, fecha, genero, published);
 		return juegoNuevo;
 	}
 
-	public Juego altaJuego(Juego juego) {
-
+	public Juego altaJuego() {
+		Juego juego = crearJuego();
 		if (listaJuegos.contains(juego)) {
 			System.out.println("Ya existe este juego");
 		} else {

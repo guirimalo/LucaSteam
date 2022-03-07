@@ -1,8 +1,9 @@
 package test;
 
 import model.Juego;
-import model.Juego.Genero;
-import model.Juego.Plataforma;
+import model.Genero;
+import model.Plataforma;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,12 +26,14 @@ public class testJuego {
 		public void testAltaJuego() {
 			Dato d = new Dato();
 			d.recogerDatos();
+			Juego j = d.crearJuego();
+			d.altaJuego();
 			
-			for (Juego juego : d.listaJuegos) {
-				if (d.listaJuegos.contains(juego)) {
+			for (Juego juego : d.getListaJuegos()) {
+				if (d.getListaJuegos().contains(juego)) {
 					
 				}else{
-					assertTrue(d.listaJuegos.add(juego));
+					assertTrue(d.getListaJuegos().add(juego));
 				};
 				
 			}
@@ -41,8 +44,9 @@ public class testJuego {
 		public void testArrayVacio() {
 			Dato d = new Dato();
 			d.recogerDatos();
-			System.out.println(d.listaJuegos.isEmpty());
-			assertFalse(d.listaJuegos.isEmpty());
+			List<Juego> listaJuego = d.getListaJuegos();
+			System.out.println(listaJuego.isEmpty());
+			assertFalse(listaJuego.isEmpty());
 
 		}
 		@Test
@@ -58,7 +62,7 @@ public class testJuego {
 				 String[] row =  line.split(",");
 				 
 				 
-				 List<Juego> lista = d.listaJuegos;
+				 List<Juego> lista = d.getListaJuegos();
 				 int esperado1 = lista.get(0).getFecha();
 				 int fecha = 2006;
 				 
