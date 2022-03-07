@@ -129,7 +129,7 @@ public class Dato {
 		return resultado;
 	}
 
-	public Juego crearJuego() {
+	public void crearJuego() {
 		Juego juegoNuevo = null;
 		String nombre = PedirDatos.pedirString("Introduzca nombre del juego:");
 
@@ -139,17 +139,16 @@ public class Dato {
 		if (isPlataforma(nombrePlataforma)) {
 			plataforma = Plataforma.valueOf(nombrePlataforma);
 		}
-		int fecha=0;
+		int fecha = 0;
 		boolean compFecha = false;
 		do {
-		  try {
-		  	fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
-			compFecha=true;
-		   }
-		  catch (Exception e){
-			System.out.println("Por favor introduce un numero.");
-		  }
-		}while(compFecha == false);
+			try {
+				fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
+				compFecha = true;
+			} catch (Exception e) {
+				System.out.println("Por favor introduce un numero.");
+			}
+		} while (compFecha == false);
 		String nombreGenero = PedirDatos.pedirString("Introduzca genero del juego: ");
 		nombreGenero = nombreGenero.toUpperCase();
 		Genero genero = null;
@@ -159,11 +158,11 @@ public class Dato {
 		String publisher = PedirDatos.pedirString("Introduzca publisher del juego: ");
 
 		juegoNuevo = new Juego(nombre, plataforma, fecha, genero, publisher);
-		return juegoNuevo;
+		
+		this.altaJuego(juegoNuevo);
 	}
 
-	public Juego altaJuego() {
-		Juego juego = crearJuego();
+	public Juego altaJuego(Juego juego) {
 		if (listaJuegos.contains(juego)) {
 			System.out.println("Ya existe este juego");
 		} else {
