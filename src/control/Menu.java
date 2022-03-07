@@ -20,7 +20,7 @@ public class Menu {
 		while (salir == false) {
 			gestor.getDato().recogerDatos();
 			System.out.println(
-					"Opciones disponibles: \n 1-Dar de alta un juego. \n 2-Dar de baja un juego. \n 3-Modificar un juego. \n 4-Generar informe. \n 5-Salir");
+					"Opciones disponibles: \n 1-Dar de alta un juego. \n 2-Dar de baja un juego. \n 3-Modificar un juego. \n 4-Generar informe. \n 6-Salir ");
 
 			try {
 				// En funcion de la opcion seleccionada, se llama a un metodo en concreto.
@@ -54,7 +54,7 @@ public class Menu {
 		System.out.println("---Informes---");
 		System.out.println("Selecciona el tipo de informe que deseas generar:");
 		System.out.println(
-				" 1-Lista completa \n 2-Por genero \n 3-Por plataforma \n 4-Por Publisher \n 5-Por fecha \n 6-Juegos del siglo XX \n 7-Por annos pares");
+				" 1-Lista completa \n 2-Por genero \n 3-Por plataforma \n 4-Por Publisher \n 5-Juegos del siglo XX \n 6-Por annos pares \n 7-Nintendo");
 
 		try {
 			int seleccion = PedirDatos.pedirEnteros("Introduce el numero de la opcion requerida y pulsa enter.");
@@ -67,13 +67,20 @@ public class Menu {
 				gestor.filtradoGenero();
 				break;
 			case 3:
-				gestor.pedirPlataforma();
+				gestor.pedirPlataforma();;
 				break;
 			case 4:
-					//gestor.filtradoPublisher();
-					//break;
-
-
+				gestor.filtradoPorPublihser();
+				break;
+			case 5:
+				gestor.filtradoSXX();
+				break;
+			case 6:
+				gestor.filtradoAniosPares();
+				break;
+			case 7:
+				gestor.filtradoPorNintendo();
+				break;
 			default:
 				System.out.println("Elige una opcion valida.");
 			}

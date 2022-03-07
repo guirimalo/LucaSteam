@@ -171,22 +171,29 @@ public class Dato {
 	
 	
 	public List<Juego> filtradoPorNintendo() {
-		List<Juego> listaNintendo = new ArrayList<Juego>();
+		ArrayList<Juego> listaNintendo = new ArrayList<Juego>();
 			for (Juego juego : listaJuegos) {
 				if (juego.getPublisher().equals("Nintendo")) {
 					listaNintendo.add(juego);
 				}
 			}
+			this.imprimirInforme(listaNintendo);
 			return listaNintendo;
 	}
 	
 	public List<Juego> filtrarPorPublisher(String publisher) {
-		List<Juego> listaPublisher = new ArrayList<Juego>();
+		ArrayList<Juego> listaPublisher = new ArrayList<Juego>();
 		for (Juego juego : listaJuegos) {
-			if (juego.getPublisher().equals(publisher))
+			if (juego.getPublisher().toUpperCase().equals(publisher))
 				listaPublisher.add(juego);
 		}
-		
+		if(listaPublisher.isEmpty()) {
+			System.out.println("No exite un juego con este publisher");
+		}
+		else {
+			this.imprimirInforme(listaPublisher);
+		}
+
 		return listaPublisher;
 	}
 	
