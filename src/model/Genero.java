@@ -1,15 +1,15 @@
 package model;
 
 public enum Genero {
-	 Sports,
-	 Action,
-	 Shooter,
-	 Platform,
-	 Racing,
-	 RolePlaying,
-	 Puzzle,
-	 Misc,
-	 Simulation,
-	 Fighting,
-	 Adventure;
+	SPORTS,
+	ACTION,
+	SHOOTER,
+	PLATFORM,
+	RACING,
+	ROLEPLAYING,
+	PUZZLE,
+	MISC,
+	SIMULATION,
+	FIGHTING,
+	ADVENTURE;
 }

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Juego {
 
     private String nombre;
@@ -61,7 +63,25 @@ public class Juego {
                 + ", plataforma=" + plataforma + "]";
     }
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(fecha, genero, nombre, plataforma, publisher);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Juego other = (Juego) obj;
+		return fecha == other.fecha && genero == other.genero && Objects.equals(nombre, other.nombre)
+				&& plataforma == other.plataforma && Objects.equals(publisher, other.publisher);
+	}
+
+    
 
 
 
