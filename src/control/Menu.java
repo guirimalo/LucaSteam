@@ -59,6 +59,7 @@ public class Menu {
 			break;
 			case 2: gestor.filtradoGenero();
 			break;
+
 			default: System.out.println("Elige una opcion valida.");
 			}
 		}catch(NumberFormatException e) {
