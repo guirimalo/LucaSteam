@@ -13,13 +13,13 @@ public class Dato {
 
 	public static void main(String[] args) {
 		recogerDatos();
-		for (Juego juego : listaJuegos) {
+		/*for (Juego juego : listaJuegos) {
 			if (isExiste(juego))
 				System.out.println("El juego existe");
 		}
 		Dato.generarInforme();
 		Juego j = Dato.crearJuego();
-		System.out.println(j.toString());
+		System.out.println(j.toString());*/
 
     }
     
@@ -28,7 +28,7 @@ public class Dato {
 	private static String file = "vgsales.csv";
 	private static BufferedReader reader = null;
 	private static String line = "";
-	private static List<Juego> listaJuegos = new ArrayList<>();
+	public static List<Juego> listaJuegos = new ArrayList<>();
 
 	public static void recogerDatos() {
 		try {
@@ -46,6 +46,7 @@ public class Dato {
 				listaJuegos.add(juego);
 
 				System.out.println(listaJuegos);
+				//System.out.println(row[4]);
 			}
 			System.out.println();
 		} catch (Exception e) {
@@ -80,8 +81,8 @@ public class Dato {
 		if (nombrePlataforma.equals(Plataforma.Wii.name())) {
 			plataforma = Plataforma.valueOf(nombrePlataforma);
 		}
-		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del año del juego:");
-		String nombreGenero = PedirDatos.pedirString("Introduzca género del juego: ");
+		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del aï¿½o del juego:");
+		String nombreGenero = PedirDatos.pedirString("Introduzca gï¿½nero del juego: ");
 		Genero genero = null;
 		if (nombreGenero.equals(Genero.Action.name())) {
 			genero = Genero.valueOf(nombreGenero);

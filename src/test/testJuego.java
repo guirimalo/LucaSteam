@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
+
 import dato.Dato;
 import junit.framework.TestCase;
 import model.Juego;
@@ -25,7 +27,7 @@ public class testJuego extends TestCase {
 		private static final String Sports = null;
 
 		
-
+		@Test
 		public void testAltaJuego() {
 			Dato d = new Dato();
 			d.recogerDatos();
@@ -41,6 +43,7 @@ public class testJuego extends TestCase {
 				
 		}
 		
+		@Test
 		public void testArrayVacio() {
 			Dato d = new Dato();
 			d.recogerDatos();
@@ -48,7 +51,7 @@ public class testJuego extends TestCase {
 			assertFalse(d.listaJuegos.isEmpty());
 
 		}
-		
+		@Test
 		public void testComprobacionDatos() throws IOException {
 			
 			Dato d = new Dato();
