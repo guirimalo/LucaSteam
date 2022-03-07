@@ -99,54 +99,70 @@ public class Dato {
 				"Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o ADVENTURE");
 		this.filtradoGenero(g.toUpperCase());
 	}
-	public void filtradoGenero(String genero) {
+
+	public ArrayList<Juego> filtradoGenero(String genero) {
+		ArrayList lista = new ArrayList<>();
 		if (isGenero(genero)) {
 			Genero genero2 = Genero.valueOf(genero);
 			for (Juego juego : listaJuegos) {
 				if (juego.getGenero().equals(genero2))
-					System.out.println(juego.toString());
+					lista.add(juego);
 			}
 		} else {
 			System.out.println("El genero introducido no corresponde a ninguno encontrado.");
 		}
+
+		this.imprimirInforme(lista);
+		return lista;
 	}
-	
-	public ArrayList<Juego> filtradoSXX(){
+
+	public ArrayList<Juego> filtradoSXX() {
 		ArrayList<Juego> lista = new ArrayList<>();
 		for (Juego juego : listaJuegos) {
-			if (juego.getFecha()<2000)
+			if (juego.getFecha() < 2000)
 				lista.add(juego);
 		}
 		this.imprimirInforme(lista);
 		return lista;
 	}
-	public void pedirPlataforma(){
+
+	public void pedirPlataforma() {
 		String parametro = PedirDatos.pedirString(
 				"Introduce la plataforma a filtrar: WII, NES, GB, DS, X360, PS4, PS3, PS2, SNES, GBA, PS, N64, NG4, PSP, XONE, GC, IIU, XB, PC, GEN, 2600 o 3DS");
 		parametro = parametro.toUpperCase();
-		if(parametro.equals("3DS"))
+		if (parametro.equals("3DS"))
 			parametro = "TRESDS";
-		if(parametro.equals("2600"))
+		if (parametro.equals("2600"))
 			parametro = "DOSSEIS";
 		filtradoPlataforma(parametro);
 	}
-	public void filtradoPlataforma(String p) {
+
+	public ArrayList<Juego> filtradoPlataforma(String p) {
+		ArrayList<Juego> lista = new ArrayList<>();
 		if (isPlataforma(p)) {
 			Plataforma plataformas = Plataforma.valueOf(p);
 			for (Juego juego : listaJuegos) {
 				if (juego.getPlataforma().equals(plataformas))
-					System.out.println(juego.toString());
+					lista.add(juego);
 			}
 		} else {
 			System.out.println("La plataforma introducida no corresponde a ninguna encontrada.");
 		}
+		this.imprimirInforme(lista);
+		return lista;
 	}
-	public void filtradoAniosPares() {
+
+	public ArrayList<Juego> filtradoAniosPares() {
+		ArrayList<Juego> lista = new ArrayList<>();
 		for (Juego juego : listaJuegos) {
-			if (juego.getFecha()% 2 == 0) {
-				System.out.println(juego.toString());}
+			if (juego.getFecha() % 2 == 0) {
+				lista.add(juego);
+			}
 		}
+		this.imprimirInforme(lista);
+		return lista;
 	}
+
 	public boolean isPlataforma(String plataforma) {
 		boolean resultado = false;
 		Plataforma[] plataformas = Plataforma.values();
@@ -168,20 +184,18 @@ public class Dato {
 		}
 		return resultado;
 	}
-	
-	
-	public List<Juego> filtradoPorNintendo() {
+	public ArrayList<Juego> filtradoPorNintendo() {
 		ArrayList<Juego> listaNintendo = new ArrayList<Juego>();
-			for (Juego juego : listaJuegos) {
-				if (juego.getPublisher().equals("Nintendo")) {
-					listaNintendo.add(juego);
-				}
+		for (Juego juego : listaJuegos) {
+			if (juego.getPublisher().equals("Nintendo")) {
+				listaNintendo.add(juego);
 			}
-			this.imprimirInforme(listaNintendo);
-			return listaNintendo;
+		}
+		this.imprimirInforme(listaNintendo);
+		return listaNintendo;
 	}
-	
-	public List<Juego> filtrarPorPublisher(String publisher) {
+
+	public ArrayList<Juego> filtrarPorPublisher(String publisher) {
 		ArrayList<Juego> listaPublisher = new ArrayList<Juego>();
 		for (Juego juego : listaJuegos) {
 			if (juego.getPublisher().toUpperCase().equals(publisher))
@@ -193,15 +207,13 @@ public class Dato {
 		else {
 			this.imprimirInforme(listaPublisher);
 		}
-
 		return listaPublisher;
 	}
-	
-	
+
 	public void pedirPublisher() {
 		String g = PedirDatos.pedirString("Introduce el publisher: ");
 		this.filtrarPorPublisher(g.toUpperCase());
-		
+
 	}
 
 	public void crearJuego() {
@@ -233,7 +245,7 @@ public class Dato {
 		String publisher = PedirDatos.pedirString("Introduzca publisher del juego: ");
 
 		juegoNuevo = new Juego(nombre, plataforma, fecha, genero, publisher);
-		
+
 		this.altaJuego(juegoNuevo);
 	}
 
@@ -249,7 +261,7 @@ public class Dato {
 		return juego;
 
 	}
-	
+
 	public void imprimirInforme(ArrayList<Juego> lista) {
 		for (Juego item : lista) {
 			System.out.println(item.toString());
