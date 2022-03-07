@@ -9,7 +9,6 @@ public class Juego {
     private String publisher;
     private Genero genero;
     private Plataforma plataforma;
-    public static int contador;
 
     public Juego() {
 
@@ -60,7 +59,6 @@ public class Juego {
 
     @Override
     public String toString() {
-    	contador++;
         return "Juego [nombre=" + nombre + ", date=" + fecha + ", publisher=" + publisher + ", genero=" + genero
                 + ", plataforma=" + plataforma + "]";
     }
