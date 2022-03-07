@@ -88,7 +88,7 @@ public class Dato {
 				System.out.println(item.toString());
 			}
 		} else {
-			System.out.println("Est� vac�o");
+			System.out.println("Esta Vacio");
 		}
 
 	}
@@ -105,6 +105,16 @@ public class Dato {
 		} else {
 			System.out.println("El genero introducido no corresponde a ninguno encontrado.");
 		}
+	}
+	
+	public ArrayList<Juego> filtradoSXX(){
+		ArrayList<Juego> lista = new ArrayList<>();
+		for (Juego juego : listaJuegos) {
+			if (juego.getFecha()<2000)
+				lista.add(juego);
+		}
+		this.imprimirInforme(lista);
+		return lista;
 	}
 
 	public boolean isPlataforma(String plataforma) {
@@ -198,5 +208,11 @@ public class Dato {
 		}
 		return juego;
 
+	}
+	
+	public void imprimirInforme(ArrayList<Juego> lista) {
+		for (Juego item : lista) {
+			System.out.println(item.toString());
+		}
 	}
 }
