@@ -129,22 +129,27 @@ public class Dato {
 		return resultado;
 	}
 	
-	@SuppressWarnings("unlikely-arg-type")
-	public void filtradoPorNintendo() {
-		
+	
+	public List<Juego> filtradoPorNintendo() {
+		List<Juego> listaNintendo = new ArrayList<Juego>();
 			for (Juego juego : listaJuegos) {
-				if (juego.getGenero().equals("Nintendo")) {
+				if (juego.getPublisher().equals("Nintendo")) {
 					System.out.println(juego.toString());	
-					
+					listaNintendo.add(juego);
 				}
 			}
+			return listaNintendo;
 	}
 	
-	public void filtrarPorPublisher(String publisher) {
+	public List<Juego> filtrarPorPublisher(String publisher) {
+		List<Juego> listaPublisher = new ArrayList<Juego>();
 		for (Juego juego : listaJuegos) {
 			if (juego.getPublisher().equals(publisher))
 				System.out.println(juego.toString());
+				listaPublisher.add(juego);
 		}
+		
+		return listaPublisher;
 	}
 	
 	

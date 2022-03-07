@@ -30,4 +30,5 @@ public class Gestor implements IGestor {
 	public void filtradoPorNintendo() {
 		dato.filtradoPorNintendo();;
 	}
+
 }
