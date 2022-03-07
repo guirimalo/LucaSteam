@@ -1,11 +1,12 @@
 package dato;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Juego;
 import model.Genero;
+import model.Juego;
 import model.Plataforma;
 import utilidades.PedirDatos;
 
@@ -18,20 +19,14 @@ public class Dato {
 		this.listaJuegos = new ArrayList<>();
 		this.recogerDatos();
 	}
-	
-
 
 	public List<Juego> getListaJuegos() {
 		return listaJuegos;
 	}
 
-
-
 	public void setListaJuegos(List<Juego> listaJuegos) {
 		this.listaJuegos = listaJuegos;
 	}
-
-
 
 	public void recogerDatos() {
 		String file = "vgsales.csv";
@@ -58,14 +53,14 @@ public class Dato {
 					}
 
 					Juego juego = new Juego(row[1], plataforma, fecha, genero, row[5]);
-					if(!isExiste(juego)) {
+					if (!isExiste(juego)) {
 						listaJuegos.add(juego);
 					}
 					// System.out.println(row[4]);
-				}catch (Exception e) {
-					
+				} catch (Exception e) {
+
 				}
-				
+
 			}
 			System.out.println();
 		} catch (Exception e) {
@@ -88,19 +83,20 @@ public class Dato {
 
 	public void generarInforme() {
 		System.out.println("Informe juegos: ");
-		if(!listaJuegos.isEmpty()) {
+		if (!listaJuegos.isEmpty()) {
 			for (Juego item : listaJuegos) {
 				System.out.println(item.toString());
 			}
-		}else {
-			System.out.println("Está vacío");
+		} else {
+			System.out.println("Estï¿½ vacï¿½o");
 		}
-			
+
 	}
 
-	public void filtradoGenero(){
-		String g = PedirDatos.pedirString("Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o4 ADVENTURE");
-		if(isGenero(g)) {
+	public void filtradoGenero() {
+		String g = PedirDatos.pedirString(
+				"Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o4 ADVENTURE");
+		if (isGenero(g)) {
 			Genero genero = Genero.valueOf(g);
 			for (Juego juego : listaJuegos) {
 				if (juego.getGenero().equals(genero))
@@ -151,10 +147,9 @@ public class Dato {
 		Genero genero = null;
 		if (isGenero(nombreGenero)) {
 			genero = Genero.valueOf(nombreGenero);
-		}	
+		}
 		String publisher = PedirDatos.pedirString("Introduzca publisher del juego: ");
 
-		
 		juegoNuevo = new Juego(nombre, plataforma, fecha, genero, publisher);
 		return juegoNuevo;
 	}
