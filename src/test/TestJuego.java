@@ -16,17 +16,15 @@ public class TestJuego {
 	@Test
 	public void testAltaJuego() {
 		Dato d = new Dato();
-		d.altaJuego();
+		Juego j = new Juego();
+		d.altaJuego(j);
 		for (Juego juego : d.getListaJuegos()) {
 			if (((Dato) d.getListaJuegos()).isExiste(juego)) {
 
 			} else {
 				assertTrue(d.getListaJuegos().add(juego));
-			}
-			;
-
+			};
 		}
-
 	}
 
 	@Test
