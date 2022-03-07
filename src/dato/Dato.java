@@ -95,9 +95,9 @@ public class Dato {
 
 	public void filtradoGenero() {
 		String g = PedirDatos.pedirString(
-				"Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o4 ADVENTURE");
-		if (isGenero(g)) {
-			Genero genero = Genero.valueOf(g);
+				"Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o ADVENTURE");
+		if (isGenero(g.toUpperCase())) {
+			Genero genero = Genero.valueOf(g.toUpperCase());
 			for (Juego juego : listaJuegos) {
 				if (juego.getGenero().equals(genero))
 					System.out.println(juego.toString());
