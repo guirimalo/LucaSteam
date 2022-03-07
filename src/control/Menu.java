@@ -57,6 +57,9 @@ public class Menu {
 			switch(seleccion) {
 			case 1: gestor.generarInforme();
 			break;
+			case 2: gestor.filtradoGenero();
+			break;
+
 			default: System.out.println("Elige una opcion valida.");
 			}
 		}catch(NumberFormatException e) {
