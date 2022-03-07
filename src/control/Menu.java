@@ -73,8 +73,7 @@ public class Menu {
 		System.out.println("1-Lista comleta  2-Por genero  3-Por plataforma  4-Por Publisher 5-Por fecha  6-Juegos del siglo XX  7-Por annos pares");
 		
 		try {
-			//TODO
-			//new Gestor().GenerarInforme();
+			new Gestor().generarInforme();
 			/*
 			 * NOTA: 
 			 * Se podria tener un metodo generarInforme en la clase gestor, al que se le pasa por parametro el tipo del informe a generar,
