@@ -4,9 +4,9 @@ import dato.Dato;
 import model.Juego;
 
 public class Gestor implements IGestor {
-	
+
 	private Dato dato = new Dato();
-	
+
 	public Dato getDato() {
 		return dato;
 	}
@@ -19,11 +19,12 @@ public class Gestor implements IGestor {
 		Juego juego = dato.altaJuego();
 		return juego;
 	}
-	
+
 	public void generarInforme() {
 		dato.generarInforme();
 	}
-	public void filtradoGenero(){
+
+	public void filtradoGenero() {
 		dato.filtradoGenero();
 	}
 }
