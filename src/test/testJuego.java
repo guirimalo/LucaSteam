@@ -4,6 +4,8 @@ import model.Juego;
 import model.Genero;
 import model.Plataforma;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,21 +16,12 @@ import dato.Dato;
 import static org.junit.Assert.*;
 
 
-public class testJuego {
-	
-		private enum Genero1 {Sports};
-		private enum Plataforma2 {Wii}
-
-		private static final String Sports = null;
-
-		
+public class testJuego {	
 		@Test
 		public void testAltaJuego() {
 			Dato d = new Dato();
-			d.altaJuego();
-			//d.altaJuego();			
 			for (Juego juego : d.getListaJuegos()) {
-				if (((Dato) d.getListaJuegos()).isExiste(juego)) {
+				if (d.getListaJuegos().contains(juego)) {
 					
 				}else{
 					assertTrue(d.getListaJuegos().add(juego));
@@ -37,8 +30,6 @@ public class testJuego {
 			}
 				
 		}
-
-	
 		
 		@Test
 		public void testArrayVacio() {
@@ -54,13 +45,6 @@ public class testJuego {
 			
 			Dato d = new Dato();
 			d.recogerDatos();
-			String file = "vgsales.csv";  
-				BufferedReader reader = new BufferedReader(new FileReader (file));
-				 
-				 reader.readLine();
-				 String line= reader.readLine();
-				 String[] row =  line.split(",");
-				 
 				 
 				 List<Juego> lista = d.getListaJuegos();
 				 int esperado1 = lista.get(0).getFecha();
@@ -71,26 +55,12 @@ public class testJuego {
 				 
 				 String esperado3 = lista.get(0).getPublisher();
 				 String publisher = "Nintendo";
-				 
-				 
-				 
-				 
-						
+				 	
 				assertEquals(esperado1, fecha); 
 				assertEquals(esperado2, nombre); 
 				assertEquals(esperado3, publisher); 
-				
-				
-				assertNotNull(lista.get(0).getGenero());
-				assertNotNull(lista.get(0).getGenero());
-				
-			    
-			    System.out.println("Este es el resultado esperado "+ esperado1 + " y este el actual " + fecha);
-			    System.out.println("Este es el resultado esperado "+ esperado2 + " y este el actual " + nombre);
-			    System.out.println("Este es el resultado esperado "+ esperado3 + " y este el actual " + publisher);
 			   
-				
-				}
+			}
 		@Test
 		public void testGenerarInforme() {
 			Dato d = new Dato();
@@ -102,6 +72,8 @@ public class testJuego {
 		
 	
 		}
+		
+		
 		@Test
 		public void testJuego() {
 			Juego j1 = new Juego();
@@ -112,5 +84,6 @@ public class testJuego {
 		//
 			
 		}
+		
 }
 
