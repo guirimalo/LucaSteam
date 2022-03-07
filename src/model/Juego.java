@@ -1,17 +1,6 @@
 package model;
 
-import model.Juego.Genero;
-
 public class Juego {
-
-    public enum Genero{
-    	Sports, Action,Shooter
-    	
-    }
-
-   public enum Plataforma{
-	   Wii
-    }
 
     private String nombre;
     private int fecha;
@@ -40,7 +29,7 @@ public class Juego {
     public int getFecha() {
         return fecha;
     }
-    public void setFecha(int echa) {
+    public void setFecha(int fecha) {
         this.fecha = fecha;
     }
     public String getPublisher() {
@@ -62,8 +51,8 @@ public class Juego {
         return plataforma;
     }
 
-    public void setPlataforma(String plataforma) {
-        plataforma = plataforma;
+    public void setPlataforma(Plataforma plataforma) {
+        this.plataforma = plataforma;
     }
 
     @Override

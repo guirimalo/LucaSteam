@@ -1,14 +1,14 @@
 package control;
 
 import model.Juego;
-import model.Juego.Genero;
-import model.Juego.Plataforma;
+import model.Genero;
+import model.Plataforma;
 import servicio.Gestor;
 import utilidades.PedirDatos;
 
 public class Menu {
 	
-	
+	private Gestor gestor = new Gestor();
 	
 	public void iniciar() {
 		this.menu();
@@ -20,22 +20,23 @@ public class Menu {
 		
 		//Se sale del menu y se finaliza el programa cuando se marca la opcion salir de dicho menu.
 		while(salir==false) {
-			System.out.println("Opciones disponibles: 1-Dar de alta un juego. 2-Dar de baja un juego. 3-Modificar un juego. 4-Generar informes. 5-Salir");
+			System.out.println("Opciones disponibles: \n 1-Dar de alta un juego. \n 2-Dar de baja un juego. \n 3-Modificar un juego. \n 4-Generar informe. \n 5-Salir");
 			
 			try {
 				//En funcion de la opcion seleccionada, se llama a un metodo en concreto.
 				int seleccion = PedirDatos.pedirEnteros("Introduce el numero de la opcion requerida y pulsa enter.");
 				
 				switch(seleccion) {
-				case 1: this.altaJuego();
+				case 1: gestor.altaJuego();
 				break;
-				case 2: this.bajaJuego();
+				case 2: //gestor.bajaJuego();
 				break;
-				case 3: this.modificarJuego();
+				case 3: //gestor.modificarJuego();
 				break;
 				case 4: this.generarInforme();
 				break;
 				case 5: salir = true;
+				break;
 				default: System.out.println("Elige una opcion valida.");
 				}
 			}catch(NumberFormatException e) {
@@ -45,41 +46,19 @@ public class Menu {
 		}
 	}
 	
-	public void altaJuego() {
-		
-		System.out.println("---Nueva alta de juego---");
-		String nombre = PedirDatos.pedirString("Nombre:");
-		Plataforma plataforma = Plataforma.valueOf(PedirDatos.pedirString("Plataforma::"));
-		int fecha = PedirDatos.pedirEnteros("Anno de salida:");
-		Genero genero = Genero.valueOf(PedirDatos.pedirString("Genero:"));
-		String publisher = PedirDatos.pedirString("Publisher:");
-		
-		//Se llama al metodo altaJuego de la clase Gestor para que se encargue de gestionar las operaciones.
-		new Gestor().altaJuego(new Juego(nombre, plataforma, fecha, genero, publisher));
-		
-	}
-	
-	public void bajaJuego() {
-		//TODO
-	}
-	
-	public void modificarJuego() {
-		//TODO
-	}
-	
 	public void generarInforme() {
 		System.out.println("---Informes---");
 		System.out.println("Selecciona el tipo de informe que deseas generar:");
-		System.out.println("1-Lista comleta  2-Por genero  3-Por plataforma  4-Por Publisher 5-Por fecha  6-Juegos del siglo XX  7-Por annos pares");
+		System.out.println("1-Lista completa \n 2-Por genero \n 3-Por plataforma \n 4-Por Publisher \n 5-Por fecha \n 6-Juegos del siglo XX \n 7-Por annos pares");
 		
 		try {
-			//TODO
-			//new Gestor().GenerarInforme();
-			/*
-			 * NOTA: 
-			 * Se podria tener un metodo generarInforme en la clase gestor, al que se le pasa por parametro el tipo del informe a generar,
-			 * y luego este metodo contiene un switch que llama al metodo correspondiente de la clase dato para cada tipo de informe a generar.
-			 * */
+			int seleccion = PedirDatos.pedirEnteros("Introduce el numero de la opcion requerida y pulsa enter.");
+			
+			switch(seleccion) {
+			case 1: gestor.generarInforme();
+			break;
+			default: System.out.println("Elige una opcion valida.");
+			}
 		}catch(NumberFormatException e) {
 			System.out.println("Introduce una opcion valida (Numero de la opcion).");
 			System.out.println();
