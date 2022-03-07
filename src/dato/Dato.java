@@ -18,6 +18,7 @@ public class Dato {
 	public Dato() {
 		super();
 		this.listaJuegos = new ArrayList<>();
+		this.recogerDatos();
 	}
 
 	public List<Juego> getListaJuegos() {
@@ -26,7 +27,6 @@ public class Dato {
 	public void setListaJuegos(List<Juego> listaJuegos) {
 		this.listaJuegos = listaJuegos;
 	}
-
 	public void recogerDatos() {
 		String file = "vgsales.csv";
 		BufferedReader reader = null;
