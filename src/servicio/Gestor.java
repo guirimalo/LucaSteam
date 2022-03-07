@@ -15,16 +15,15 @@ public class Gestor implements IGestor {
 		this.dato = dato;
 	}
 
-	public Juego altaJuego() {
-		Juego juego = dato.altaJuego();
-		return juego;
+	public void altaJuego() {
+		this.dato.crearJuego();
 	}
 
 	public void generarInforme() {
-		dato.generarInforme();
+		this.dato.generarInforme();
 	}
 
 	public void filtradoGenero() {
-		dato.filtradoGenero();
+		this.dato.filtradoGenero();
 	}
 }
