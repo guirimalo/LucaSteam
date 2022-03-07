@@ -1,7 +1,8 @@
 package dato;
 
 import java.io.*;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Juego;
 import model.Genero;
@@ -10,23 +11,26 @@ import utilidades.PedirDatos;
 
 public class Dato {
 
-	private TreeSet<Juego> listaJuegos;
+	private List<Juego> listaJuegos;
 
 	public Dato() {
 		super();
-		this.listaJuegos = new TreeSet<>();
+		this.listaJuegos = new ArrayList<>();
 		this.recogerDatos();
 	}
+	
 
 
-	public TreeSet<Juego> getListaJuegos() {
+	public List<Juego> getListaJuegos() {
 		return listaJuegos;
 	}
 
 
-	public void setListaJuegos(TreeSet<Juego> listaJuegos) {
+
+	public void setListaJuegos(List<Juego> listaJuegos) {
 		this.listaJuegos = listaJuegos;
 	}
+
 
 
 	public void recogerDatos() {
@@ -54,8 +58,9 @@ public class Dato {
 					}
 
 					Juego juego = new Juego(row[1], plataforma, fecha, genero, row[5]);
-					listaJuegos.add(juego);
-					System.out.println("h");
+					if(!isExiste(juego)) {
+						listaJuegos.add(juego);
+					}
 					// System.out.println(row[4]);
 				}catch (Exception e) {
 					
@@ -83,9 +88,14 @@ public class Dato {
 
 	public void generarInforme() {
 		System.out.println("Informe juegos: ");
-		for (Juego item : listaJuegos) {
-			System.out.println(Juego.contador + item.toString());
+		if(!listaJuegos.isEmpty()) {
+			for (Juego item : listaJuegos) {
+				System.out.println(Juego.contador + item.toString());
+			}
+		}else {
+			System.out.println("Está vacío");
 		}
+			
 	}
 
 	public void filtradoGenero() {
