@@ -107,7 +107,7 @@ public class Dato {
 		}
 	}
 
-	public static boolean isPlataforma(String plataforma) {
+	public boolean isPlataforma(String plataforma) {
 		boolean resultado = false;
 		Plataforma[] plataformas = Plataforma.values();
 		for (Plataforma item : plataformas) {
@@ -118,7 +118,7 @@ public class Dato {
 		return resultado;
 	}
 
-	public static boolean isGenero(String genero) {
+	public boolean isGenero(String genero) {
 		boolean resultado = false;
 		Genero[] generos = Genero.values();
 		for (Genero item : generos) {
@@ -139,9 +139,17 @@ public class Dato {
 		if (isPlataforma(nombrePlataforma)) {
 			plataforma = Plataforma.valueOf(nombrePlataforma);
 		}
-
-		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
-
+		int fecha=0;
+		boolean compFecha = false;
+		do {
+		  try {
+		  	fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
+			compFecha=true;
+		   }
+		  catch (Exception e){
+			System.out.println("Por favor introduce un numero.");
+		  }
+		}while(compFecha == false);
 		String nombreGenero = PedirDatos.pedirString("Introduzca genero del juego: ");
 		nombreGenero = nombreGenero.toUpperCase();
 		Genero genero = null;
