@@ -14,21 +14,18 @@ public class Dato {
 	
 	private List<Juego> listaJuegos;
 
+
 	public Dato() {
 		super();
 		this.listaJuegos = new ArrayList<>();
 	}
-	
 
 	public List<Juego> getListaJuegos() {
 		return listaJuegos;
 	}
-
-
 	public void setListaJuegos(List<Juego> listaJuegos) {
 		this.listaJuegos = listaJuegos;
 	}
-
 
 	public void recogerDatos() {
 		String file = "vgsales.csv";
@@ -49,6 +46,7 @@ public class Dato {
 				listaJuegos.add(juego);
 
 				System.out.println(listaJuegos);
+				//System.out.println(row[4]);
 			}
 			System.out.println();
 		} catch (Exception e) {
@@ -107,10 +105,10 @@ public class Dato {
 		if (isPlataforma(nombrePlataforma)) {
 			plataforma = Plataforma.valueOf(nombrePlataforma);
 		}
+    
+		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del anio del juego:");
 		
-		int fecha = PedirDatos.pedirEnteros("Introduzca fecha del año del juego:");
-		
-		String nombreGenero = PedirDatos.pedirString("Introduzca género del juego: ");
+		String nombreGenero = PedirDatos.pedirString("Introduzca genero del juego: ");
 		nombreGenero = nombreGenero.toUpperCase();
 		Genero genero = null;
 		if (isGenero(nombreGenero)) {
