@@ -94,13 +94,16 @@ public class Dato {
 
 	}
 
-	public void filtradoGenero() {
+	public void pedirGenero() {
 		String g = PedirDatos.pedirString(
 				"Introduce el genero a filtrar: SPORTS, ACTION, SHOOTER, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SIMULATION, FIGHTING o ADVENTURE");
-		if (isGenero(g.toUpperCase())) {
-			Genero genero = Genero.valueOf(g.toUpperCase());
+		this.filtradoGenero(g.toUpperCase());
+	}
+	public void filtradoGenero(String genero) {
+		if (isGenero(genero)) {
+			Genero genero2 = Genero.valueOf(genero);
 			for (Juego juego : listaJuegos) {
-				if (juego.getGenero().equals(genero))
+				if (juego.getGenero().equals(genero2))
 					System.out.println(juego.toString());
 			}
 		} else {
@@ -166,22 +169,25 @@ public class Dato {
 		return resultado;
 	}
 	
-	@SuppressWarnings("unlikely-arg-type")
-	public void filtradoPorNintendo() {
-		
+	
+	public List<Juego> filtradoPorNintendo() {
+		List<Juego> listaNintendo = new ArrayList<Juego>();
 			for (Juego juego : listaJuegos) {
-				if (juego.getGenero().equals("Nintendo")) {
-					System.out.println(juego.toString());	
-					
+				if (juego.getPublisher().equals("Nintendo")) {
+					listaNintendo.add(juego);
 				}
 			}
+			return listaNintendo;
 	}
 	
-	public void filtrarPorPublisher(String publisher) {
+	public List<Juego> filtrarPorPublisher(String publisher) {
+		List<Juego> listaPublisher = new ArrayList<Juego>();
 		for (Juego juego : listaJuegos) {
 			if (juego.getPublisher().equals(publisher))
-				System.out.println(juego.toString());
+				listaPublisher.add(juego);
 		}
+		
+		return listaPublisher;
 	}
 	
 	
