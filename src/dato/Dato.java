@@ -140,7 +140,19 @@ public class Dato {
 			}
 	}
 	
-
+	public void filtrarPorPublisher(String publisher) {
+		for (Juego juego : listaJuegos) {
+			if (juego.getPublisher().equals(publisher))
+				System.out.println(juego.toString());
+		}
+	}
+	
+	
+	public void pedirPublisher() {
+		String g = PedirDatos.pedirString("Introduce el publisher: ");
+		this.filtrarPorPublisher(g.toUpperCase());
+		
+	}
 
 	public void crearJuego() {
 		Juego juegoNuevo = null;
