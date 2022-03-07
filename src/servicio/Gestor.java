@@ -26,4 +26,8 @@ public class Gestor implements IGestor {
 	public void filtradoGenero() {
 		this.dato.filtradoGenero();
 	}
+	
+	public void filtradoPorNintendo() {
+		dato.filtradoPorNintendo();;
+	}
 }
