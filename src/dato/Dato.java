@@ -134,7 +134,6 @@ public class Dato {
 		List<Juego> listaNintendo = new ArrayList<Juego>();
 			for (Juego juego : listaJuegos) {
 				if (juego.getPublisher().equals("Nintendo")) {
-					System.out.println(juego.toString());	
 					listaNintendo.add(juego);
 				}
 			}
@@ -145,7 +144,6 @@ public class Dato {
 		List<Juego> listaPublisher = new ArrayList<Juego>();
 		for (Juego juego : listaJuegos) {
 			if (juego.getPublisher().equals(publisher))
-				System.out.println(juego.toString());
 				listaPublisher.add(juego);
 		}
 		

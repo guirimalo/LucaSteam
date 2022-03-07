@@ -3,14 +3,18 @@ package test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Test;
+
 import dato.Dato;
-import model.Juego;
+
 
 public class TestNintendo {
-
-	public void isNull() {
+	
+	@Test
+	public void isNotNull() {
 		Dato d = new Dato();
-		Juego j1 = new Juego();
-		assertNull(d.filtradoPorNintendo());
+		assertNotNull(d.filtradoPorNintendo());
 	}
+
+
 }
