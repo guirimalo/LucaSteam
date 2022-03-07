@@ -88,7 +88,7 @@ public class Dato {
 				System.out.println(item.toString());
 			}
 		} else {
-			System.out.println("Est� vac�o");
+			System.out.println("Esta Vacio");
 		}
 
 	}
@@ -105,6 +105,16 @@ public class Dato {
 		} else {
 			System.out.println("El genero introducido no corresponde a ninguno encontrado.");
 		}
+	}
+	
+	public ArrayList<Juego> filtradoSXX(){
+		ArrayList<Juego> lista = new ArrayList<>();
+		for (Juego juego : listaJuegos) {
+			if (juego.getFecha()<2000)
+				lista.add(juego);
+		}
+		this.imprimirInforme(lista);
+		return lista;
 	}
 
 	public boolean isPlataforma(String plataforma) {
@@ -127,6 +137,31 @@ public class Dato {
 			}
 		}
 		return resultado;
+	}
+	
+	@SuppressWarnings("unlikely-arg-type")
+	public void filtradoPorNintendo() {
+		
+			for (Juego juego : listaJuegos) {
+				if (juego.getGenero().equals("Nintendo")) {
+					System.out.println(juego.toString());	
+					
+				}
+			}
+	}
+	
+	public void filtrarPorPublisher(String publisher) {
+		for (Juego juego : listaJuegos) {
+			if (juego.getPublisher().equals(publisher))
+				System.out.println(juego.toString());
+		}
+	}
+	
+	
+	public void pedirPublisher() {
+		String g = PedirDatos.pedirString("Introduce el publisher: ");
+		this.filtrarPorPublisher(g.toUpperCase());
+		
 	}
 
 	public void crearJuego() {
@@ -173,5 +208,11 @@ public class Dato {
 		}
 		return juego;
 
+	}
+	
+	public void imprimirInforme(ArrayList<Juego> lista) {
+		for (Juego item : lista) {
+			System.out.println(item.toString());
+		}
 	}
 }
