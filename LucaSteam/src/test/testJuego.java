@@ -99,7 +99,7 @@ public class testJuego {
 			
 			assertEquals("Juego [nombre=null, date=0, publisher=null, genero=null, plataforma=null]",j1.toString());
 			assertEquals("Juego [nombre=Wii Sport, date=2006, publisher=Nintendo, genero=Sports, plataforma=WII]",j2.toString());
-		
+		//
 			
 		}
 	
