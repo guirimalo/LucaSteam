@@ -92,8 +92,14 @@ public class testJuego {
 			   
 				
 				}
-		
-	
-	
-
+		@Test
+		public void testJuego() {
+			Juego j1 = new Juego();
+			Juego j2 = new Juego("Wii Sport", Plataforma.WII, 2006, Genero.Sports, "Nintendo");
+			
+			assertEquals("Juego [nombre=null, date=0, publisher=null, genero=null, plataforma=null]",j1.toString());
+			assertEquals("Juego [nombre=Wii Sport, date=2006, publisher=Nintendo, genero=Sports, plataforma=WII]",j2.toString());
+		//
+			
+		}
 }
