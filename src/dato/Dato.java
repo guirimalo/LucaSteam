@@ -127,10 +127,10 @@ public class Dato {
 			genero = Genero.valueOf(nombreGenero);
 		}
 		
-		String published = PedirDatos.pedirString("Introduzca published del juego: ");
+		String publisher = PedirDatos.pedirString("Introduzca publisher del juego: ");
 
 		
-		juegoNuevo = new Juego(nombre, plataforma, fecha, genero, published);
+		juegoNuevo = new Juego(nombre, plataforma, fecha, genero, publisher);
 		return juegoNuevo;
 	}
 
