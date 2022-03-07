@@ -128,6 +128,19 @@ public class Dato {
 		}
 		return resultado;
 	}
+	
+	@SuppressWarnings("unlikely-arg-type")
+	public void filtradoPorNintendo() {
+		
+			for (Juego juego : listaJuegos) {
+				if (juego.getGenero().equals("Nintendo")) {
+					System.out.println(juego.toString());	
+					
+				}
+			}
+	}
+	
+
 
 	public Juego crearJuego() {
 		Juego juegoNuevo = null;
