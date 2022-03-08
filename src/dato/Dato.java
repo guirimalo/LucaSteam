@@ -11,7 +11,7 @@ import model.Juego;
 import model.Plataforma;
 import utilidades.PedirDatos;
 
-public class Dato {
+public class Dato implements IDato {
 
 	private List<Juego> listaJuegos;
 
