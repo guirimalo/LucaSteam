@@ -249,16 +249,19 @@ public class Dato {
 		this.altaJuego(juegoNuevo);
 	}
 
-	public Juego altaJuego(Juego juego) {
+	public boolean altaJuego(Juego juego) {
+		boolean salida;
 		if (listaJuegos.contains(juego)) {
 			System.out.println("Ya existe este juego");
+			salida = false;
 		} else {
 
 			listaJuegos.add(juego);
 
 			System.out.println("Se ha creado el juego" + juego + " correctamente");
+			salida = true;
 		}
-		return juego;
+		return salida;
 
 	}
 

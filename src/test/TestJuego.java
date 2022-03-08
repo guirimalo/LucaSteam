@@ -3,6 +3,7 @@ package test;
 import model.Juego;
 import model.Genero;
 import model.Plataforma;
+
 import java.io.IOException;
 import java.util.List;
 import org.junit.Test;
@@ -12,19 +13,20 @@ import static org.junit.Assert.*;
 
 public class TestJuego {
 
-//REVISAR
-	@Test
-	public void testAltaJuego() {
-		Dato d = new Dato();
-		Juego j = new Juego();
-		d.altaJuego(j);
-		for (Juego juego : d.getListaJuegos()) {
-			if (((Dato) d.getListaJuegos()).isExiste(juego)) {
+	Dato d = new Dato();
+	Juego j1 = new Juego();
+	Juego j2 = new Juego("Wii Sport", Plataforma.WII, 2006, Genero.SPORTS, "Nintendo");
 
-			} else {
-				assertTrue(d.getListaJuegos().add(juego));
-			};
-		}
+	@Test
+	public void testAltaJuegoTrue() {
+		assertTrue(d.altaJuego(j2));
+	}
+
+	@Test
+	public void testAltaJuegoFalse() {
+		j1 = d.getListaJuegos().get(2);
+		assertFalse(d.altaJuego(j1));
+
 	}
 
 	@Test
@@ -74,8 +76,6 @@ public class TestJuego {
 
 	@Test
 	public void testJuego() {
-		Juego j1 = new Juego();
-		Juego j2 = new Juego("Wii Sport", Plataforma.WII, 2006, Genero.SPORTS, "Nintendo");
 
 		assertEquals("Juego [nombre=null, date=0, publisher=null, genero=null, plataforma=null]", j1.toString());
 		assertEquals("Juego [nombre=Wii Sport, date=2006, publisher=Nintendo, genero=SPORTS, plataforma=WII]",
