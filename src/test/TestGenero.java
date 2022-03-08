@@ -4,7 +4,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
@@ -26,5 +25,12 @@ class TestGenero {
 
 		assertNull(j1.getGenero());
 
+	}
+	@Test
+	void testGenero3() {
+		Juego juego = new Juego();
+		Genero genero = Genero.SPORTS;
+
+		assertTrue(juego.getGenero().equals(genero));
 	}
 }
