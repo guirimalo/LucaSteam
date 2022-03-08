@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 
 import dato.Dato;
-import lombok.experimental.StandardException;
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
