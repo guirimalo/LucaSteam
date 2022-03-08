@@ -11,4 +11,5 @@ public interface IGestor {
 	void filtradoSXX();
 	void pedirPlataforma();
 	void filtradoAniosPares();
+	
 }

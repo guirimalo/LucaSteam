@@ -22,4 +22,5 @@ public interface IDato {
 	void crearJuego();
 	boolean altaJuego(Juego juego);
 	void imprimirInforme(ArrayList<Juego> lista);
+
 }
