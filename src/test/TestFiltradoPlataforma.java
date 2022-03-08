@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import dato.Dato;
 import model.Juego;
 import model.Plataforma;
+import utilidades.PedirDatos;
 
 class TestFiltradoPlataforma {
 	private Dato dato;
@@ -157,6 +159,14 @@ class TestFiltradoPlataforma {
 		juegos = dato.filtradoPlataforma("PC");
 		juego = juegos.get(4);
 		assertNotEquals(juego.getPlataforma(), Plataforma.PS);
+	}
+	
+	@Test
+	void filtradoPorPlataformaStringParametroIsEmpty() {
+		String plataforma = "";
+		juegos = dato.filtradoPlataforma(plataforma);
+		assertEquals(plataforma, "", "Como parámetro está vacío, la lista que devuelve estará vacía");
+		assertTrue(juegos.isEmpty(), "La lista de juegos está vacía");
 	}
 
 }
