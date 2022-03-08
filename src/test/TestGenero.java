@@ -21,6 +21,7 @@ class TestGenero {
 	private Juego juego1 = new Juego("Wii Sports", Plataforma.WII, 2006, Genero.SPORTS, "Nintendo");
 	ArrayList<Juego> lista = d.filtradoGenero("SPORTS");
 	
+	
 
 	@Test
 	void testGenero1() {
