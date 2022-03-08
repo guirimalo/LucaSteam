@@ -12,7 +12,7 @@ import model.Plataforma;
 
 class TestAnios {
 
-	Dato d = new Dato ();
+	Dato d = new Dato();
 	private Juego juego1;
 	private Juego juego2;
 
@@ -27,6 +27,7 @@ class TestAnios {
 		assertTrue(d.filtradoAniosPares().contains(juego1));
 
 	}
+
 	@Test
 	void testAniosPares3() {
 		juego2 = new Juego("Super Mario Bross", Plataforma.NES, 1985, Genero.PLATFORM, "Nintendo");

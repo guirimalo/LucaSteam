@@ -1,5 +1,7 @@
 package servicio;
 
+import java.util.ArrayList;
+
 import dato.Dato;
 import model.Juego;
 
@@ -43,4 +45,6 @@ public class Gestor implements IGestor {
 	public void filtradoAniosPares() {
 		dato.filtradoAniosPares();
 	}
+
+
 }

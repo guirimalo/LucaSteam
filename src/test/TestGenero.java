@@ -26,6 +26,7 @@ class TestGenero {
 		assertNull(j1.getGenero());
 
 	}
+
 	@Test
 	void testGenero3() {
 		Juego juego = new Juego();
