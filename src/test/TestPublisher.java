@@ -2,9 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
-
 import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Test;
 
@@ -20,13 +18,11 @@ public class TestPublisher {
 	private Juego juego1 = new Juego("Wii Sports", Plataforma.WII, 2006, Genero.SPORTS, "Nintendo");
 	ArrayList<Juego> lista = d.filtrarPorPublisher("Nintendo");
 
-
 	@Test
 	public void isNotNull() {
 		assertNotNull(lista);
-		
-	}
 
+	}
 
 	@Test
 	public void testPublisherFalse() {
@@ -36,9 +32,9 @@ public class TestPublisher {
 
 	@Test
 	public void testPublisherisNotEmpty() {
-		
+
 		assertTrue(lista.isEmpty());
-		
+
 	}
 
 	@Test

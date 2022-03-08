@@ -1,8 +1,6 @@
 package test;
 
-
 import static org.junit.Assert.*;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +12,11 @@ import model.Genero;
 import model.Juego;
 import model.Plataforma;
 
-
 public class TestNintendo {
-	
-	Dato d = new Dato ();
+
+	Dato d = new Dato();
 	private Juego juego1;
-	
+
 	@Test
 	public void isNotNull() {
 		Dato d = new Dato();
@@ -32,6 +29,7 @@ public class TestNintendo {
 		assertTrue(d.filtradoPorNintendo().contains(juego1));
 
 	}
+
 	@Test
 	public void testNintendoFalse() {
 		juego1 = new Juego("Super Mario Bross", Plataforma.NES, 1985, Genero.PLATFORM, "Wii");
@@ -44,6 +42,7 @@ public class TestNintendo {
 		List<Juego> lista = d.filtradoPorNintendo();
 		assertFalse(lista.isEmpty());
 	}
+
 	@Test
 	public void testNintendoiEmpty() {
 		ArrayList<Juego> lista = new ArrayList<Juego>();
